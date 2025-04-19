@@ -1,14 +1,11 @@
----
-title: "Understanding Neurovizr: A Deep Dive into Blockchain Visualization"
-date: "2024-04-22"
-readTime: "8 min read"
-tags: ["Blockchain", "Technology", "Innovation"]
-image: "../../../images/neurovizr-lightning.jpg"
-imageAlt: "Neurovizr Visualization Interface"
-imageCaption: "Visual representation of blockchain data through Neurovizr"
----
+# Enhancing Lightning Network with Neurovizr: A Personal Journey
 
-# Understanding Neurovizr: A Deep Dive into Blockchain Visualization
+![Lightning Network and Neurovizr Integration](../../../images/neurovizr-lightning.jpg)
+*My experience with Neurovizr and Lightning Network*
+
+*Published on April 22, 2024 · 10 min read*
+
+*Tags: Personal Growth, Bitcoin, Innovation*
 
 In the complex world of blockchain technology, understanding and analyzing network data has always been a challenge. Neurovizr emerges as a groundbreaking solution that transforms how we interact with blockchain data through advanced visualization techniques.
 
