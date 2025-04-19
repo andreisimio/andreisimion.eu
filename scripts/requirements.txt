@@ -1,4 +1,0 @@
-webuiapi
-pillow
-requests
-torch
