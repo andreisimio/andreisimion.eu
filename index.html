@@ -37,6 +37,13 @@
     </header>
 
     <main class="container mx-auto py-10 px-6">
+        <!-- Search Section -->
+        <section id="search-section" class="card mb-10 p-4">
+            <input id="search-input" type="text" placeholder="Search site..." class="w-full p-2 border border-gray-300 rounded mb-2" />
+            <div id="search-suggestions" class="bg-white border border-gray-300 rounded shadow-md p-2 hidden"></div>
+            <div id="search-results" class="mt-4"></div>
+        </section>
+        <!-- ...existing sections (About, Experience, Projects, Contact)... -->
         <section id="about" class="card mb-10">
             <h2 class="text-2xl font-semibold mb-6 text-gray-800">About Me</h2>
             <div class="space-y-4">
@@ -163,6 +170,93 @@
                 });
             });
         });
+
+        // --- Search Feature Script ---
+        // Define a simple search index. Update with actual site page content.
+        const searchData = [
+            {
+                title: "Home",
+                url: "/index.html",
+                content: "Andrei Simion Enterprise Solution Architect About Me Experience Projects Contact"
+            },
+            {
+                title: "Blog",
+                url: "/blog/index.html",
+                content: "Articles, insights, and industry trends in cloud architecture and digital transformation"
+            },
+            {
+                title: "Branding",
+                url: "/branding.html",
+                content: "Personal branding and design guidelines for Andrei Simion"
+            }
+            // ...add more pages as needed
+        ];
+
+        const searchInput = document.getElementById("search-input");
+        const suggestionsBox = document.getElementById("search-suggestions");
+        const resultsBox = document.getElementById("search-results");
+
+        function filterData(term) {
+            const lowerTerm = term.toLowerCase();
+            return searchData.filter(item => item.content.toLowerCase().includes(lowerTerm));
+        }
+
+        searchInput.addEventListener("keyup", function() {
+            const term = this.value.trim();
+            suggestionsBox.innerHTML = "";
+            resultsBox.innerHTML = "";
+            if(term.length < 2) {
+                suggestionsBox.classList.add("hidden");
+                return;
+            }
+            const matches = filterData(term);
+            if(matches.length) {
+                suggestionsBox.classList.remove("hidden");
+                matches.forEach(match => {
+                    const div = document.createElement("div");
+                    div.textContent = match.title;
+                    div.className = "cursor-pointer hover:bg-blue-50 p-1 rounded";
+                    div.addEventListener("click", function() {
+                        searchInput.value = match.title;
+                        displayResults(term);
+                        suggestionsBox.classList.add("hidden");
+                    });
+                    suggestionsBox.appendChild(div);
+                });
+            } else {
+                suggestionsBox.classList.add("hidden");
+            }
+        });
+
+        function displayResults(term) {
+            const matches = filterData(term);
+            if(matches.length) {
+                const ul = document.createElement("ul");
+                ul.className = "list-disc ml-4";
+                matches.forEach(match => {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.href = match.url;
+                    a.textContent = match.title;
+                    a.className = "text-blue-600 hover:underline";
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                });
+                resultsBox.innerHTML = "";
+                resultsBox.appendChild(ul);
+            } else {
+                resultsBox.textContent = "No results found.";
+            }
+        }
+
+        // Optionally, perform search on Enter key
+        searchInput.addEventListener("keydown", function(e) {
+            if(e.key === "Enter") {
+                displayResults(this.value.trim());
+                suggestionsBox.classList.add("hidden");
+            }
+        });
+        // --- End Search Feature Script ---
     </script>
 </body>
 </html>
