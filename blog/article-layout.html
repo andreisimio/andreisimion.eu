@@ -37,6 +37,24 @@
     </main>
 
     <script>
+        marked.setOptions({
+            breaks: true,
+            gfm: true
+        });
+
+        function handleImageErrors() {
+            document.querySelectorAll('img').forEach(img => {
+                console.log('Processing image:', img.src);
+                img.style.display = 'block'; // Make images visible
+                img.onerror = function() {
+                    console.error('Image load failed:', this.src);
+                    if (!this.src.includes('placehold.co')) {
+                        this.src = `https://placehold.co/800x400/1a237e/ffffff?text=${this.alt}&font=playfair`;
+                    }
+                };
+            });
+        }
+
         const urlParams = new URLSearchParams(window.location.search);
         const articlePath = urlParams.get('article');
         
@@ -45,6 +63,7 @@
                 .then(response => response.text())
                 .then(markdown => {
                     document.getElementById('content').innerHTML = marked.parse(markdown);
+                    handleImageErrors();
                     const title = markdown.split('\n')[0].replace('# ', '');
                     document.title = `${title} - Andrei Simion`;
                 })

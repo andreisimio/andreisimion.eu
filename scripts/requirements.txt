@@ -1,0 +1,4 @@
+webuiapi
+pillow
+requests
+torch
