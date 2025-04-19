@@ -3,82 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Article - Andrei Simion</title>
+    <title>Article - Andrei Simion</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="/css/main.css">
-    <style>
-        .prose {
-            max-width: 65ch;
-            margin: auto;
-        }
-        .prose h1 { font-size: 2.25rem; font-weight: 700; margin-top: 2rem; }
-        .prose h2 { font-size: 1.75rem; font-weight: 600; margin-top: 1.5rem; }
-        .prose p { margin: 1rem 0; }
-        .prose ul { list-style-type: disc; padding-left: 1.5rem; }
-        .prose strong { font-weight: 600; }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body class="bg-gray-50">
     <nav class="fixed w-full bg-white shadow-md z-50">
         <div class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
                 <a href="/" class="font-bold text-xl text-gray-800">AS</a>
-                <a href="/blog/index.html" class="text-gray-600 hover:text-gray-900">← Back to Blog</a>
+                <a href="/blog" class="text-gray-600 hover:text-gray-900">← Back to Blog</a>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto px-6 pt-24 max-w-4xl">
-        <article id="content" class="prose bg-white p-8 rounded-lg shadow-md">
-            Loading...
+    <main class="container mx-auto px-6 pt-24 pb-12 max-w-4xl">
+        <article id="article-content" class="prose lg:prose-xl mx-auto">
+            <div id="loading">Loading article...</div>
+            <div id="error" class="hidden text-red-600">Error loading article</div>
+            <div id="content"></div>
         </article>
     </main>
 
+    <footer class="bg-gray-200 text-gray-600 py-6 px-6 mt-12 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2024 Andrei Simion. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
+        async function loadArticle() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articlePath = urlParams.get('article');
+            
+            if (!articlePath) {
+                showError('Article path not specified');
+                return;
+            }
+
+            try {
+                const response = await fetch(articlePath);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                
+                const markdown = await response.text();
+                const html = marked.parse(markdown);
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').innerHTML = html;
+                
+                // Update page title based on first h1/h2 found
+                const titleElement = document.querySelector('h1, h2');
+                if (titleElement) {
+                    document.title = `${titleElement.textContent} - Andrei Simion`;
+                }
+            } catch (error) {
+                console.error('Error loading article:', error);
+                showError('Failed to load article');
+            }
+        }
+
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            const errorElement = document.getElementById('error');
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+        }
+
+        // Initialize marked with GitHub Flavored Markdown
         marked.setOptions({
-            breaks: true,
-            gfm: true
+            gfm: true,
+            breaks: true
         });
 
-        function handleImageErrors() {
-            document.querySelectorAll('img').forEach(img => {
-                console.log('Processing image:', img.src);
-                img.style.display = 'block'; // Make images visible
-                img.onerror = function() {
-                    console.error('Image load failed:', this.src);
-                    if (!this.src.includes('placehold.co')) {
-                        this.src = `https://placehold.co/800x400/1a237e/ffffff?text=${this.alt}&font=playfair`;
-                    }
-                };
-            });
-        }
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const articlePath = urlParams.get('article');
-        
-        if (articlePath) {
-            fetch(articlePath)
-                .then(response => response.text())
-                .then(markdown => {
-                    document.getElementById('content').innerHTML = marked.parse(markdown);
-                    handleImageErrors();
-                    const title = markdown.split('\n')[0].replace('# ', '');
-                    document.title = `${title} - Andrei Simion`;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    document.getElementById('content').innerHTML = `
-                        <div class="text-red-600">
-                            <h2>Error loading article</h2>
-                            <p>Article path: ${articlePath}</p>
-                            <p>Error details: ${error.message}</p>
-                        </div>`;
-                });
-        } else {
-            window.location.href = '/blog/index.html';
-        }
+        loadArticle();
     </script>
 </body>
 </html>
