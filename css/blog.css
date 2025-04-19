@@ -1,0 +1,34 @@
+.blog-post {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.blog-post h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.blog-post-meta {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+}
+
+.blog-post-content {
+    line-height: 1.8;
+}
+
+.blog-post img {
+    max-width: 100%;
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
