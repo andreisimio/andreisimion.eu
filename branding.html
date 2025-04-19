@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Guidelines - Andrei Simion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="/" class="font-bold text-xl text-gray-800">AS</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/" class="text-gray-600 hover:text-gray-900">Home</a>
+                    <a href="/blog/index.html" class="text-gray-600 hover:text-gray-900">Blog</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto py-20 px-6">
+        <h1 class="text-4xl font-bold text-gray-800 mb-8">Brand Guidelines</h1>
+
+        <section class="card mb-10">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Colors</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="p-4 bg-blue-600 text-white rounded">
+                    <p class="font-semibold">Primary Blue</p>
+                    <p class="text-sm">#2563EB</p>
+                </div>
+                <div class="p-4 bg-yellow-500 text-white rounded">
+                    <p class="font-semibold">Accent Yellow</p>
+                    <p class="text-sm">#EAB308</p>
+                </div>
+                <div class="p-4 bg-gray-800 text-white rounded">
+                    <p class="font-semibold">Dark Gray</p>
+                    <p class="text-sm">#1F2937</p>
+                </div>
+                <div class="p-4 bg-gray-100 text-gray-800 rounded">
+                    <p class="font-semibold">Light Gray</p>
+                    <p class="text-sm">#F3F4F6</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card mb-10">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Typography</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Primary Font: Inter</h3>
+                    <p class="text-4xl">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj</p>
+                    <p class="text-sm mt-2 text-gray-600">Font weights: 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)</p>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-sm text-gray-600 mb-1">Heading 1</h4>
+                        <p class="text-4xl font-bold">This is Heading 1</p>
+                    </div>
+                    <div>
+                        <h4 class="text-sm text-gray-600 mb-1">Heading 2</h4>
+                        <p class="text-2xl font-semibold">This is Heading 2</p>
+                    </div>
+                    <div>
+                        <h4 class="text-sm text-gray-600 mb-1">Body Text</h4>
+                        <p class="text-base">This is the standard body text used throughout the website.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card mb-10">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Logo Usage</h2>
+            <div class="space-y-4">
+                <div class="p-8 bg-white rounded-lg shadow-md inline-block">
+                    <span class="font-bold text-3xl text-gray-800">AS</span>
+                </div>
+                <div class="prose">
+                    <p>The logo consists of the initials "AS" in Inter Bold. Maintain clear space around the logo equal to the height of the "A" character.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Components</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold mb-3">Buttons</h3>
+                    <div class="space-x-4">
+                        <button class="btn-primary">Primary Button</button>
+                        <button class="bg-gray-200 text-gray-800 px-6 py-2 rounded hover:bg-gray-300">Secondary Button</button>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-3">Cards</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md w-64">
+                        <h4 class="text-lg font-semibold mb-2">Card Title</h4>
+                        <p class="text-gray-600">This is an example card component used throughout the website.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-200 text-gray-600 py-6 px-6 mt-12 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Andrei Simion. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
