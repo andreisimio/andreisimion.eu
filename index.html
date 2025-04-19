@@ -225,7 +225,7 @@
         const resultsBox = document.getElementById("search-results");
 
         function filterData(term) {
-            const pattern = new RegExp("\\b" + term.trim() + "\\b", "i");
+            const pattern = new RegExp(term.trim(), "i"); // changed: allow partial matches
             return searchData.filter(item => pattern.test(item.content));
         }
 
