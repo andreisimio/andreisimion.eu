@@ -225,8 +225,8 @@
         const resultsBox = document.getElementById("search-results");
 
         function filterData(term) {
-            const lowerTerm = term.toLowerCase();
-            return searchData.filter(item => item.content.toLowerCase().includes(lowerTerm));
+            const pattern = new RegExp("\\b" + term.trim() + "\\b", "i");
+            return searchData.filter(item => pattern.test(item.content));
         }
 
         searchInput.addEventListener("keyup", function() {
