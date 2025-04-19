@@ -191,7 +191,35 @@
             }
             // ...add more pages as needed
         ];
-
+        
+        // New function: fetch external pages and index their full text
+        function updateExternalData(urlTitleMap) {
+            Object.entries(urlTitleMap).forEach(([url, title]) => {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(html => {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, "text/html");
+                        const textContent = doc.body.innerText;
+                        const idx = searchData.findIndex(item => item.url === url);
+                        if (idx !== -1) {
+                            searchData[idx].content = textContent;
+                        } else {
+                            searchData.push({ title, url, content: textContent });
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Failed to fetch", url, err);
+                    });
+            });
+        }
+        
+        // Update searchData for the external pages
+        updateExternalData({
+            "/blog/index.html": "Blog",
+            "/branding.html": "Branding"
+        });
+        
         const searchInput = document.getElementById("search-input");
         const suggestionsBox = document.getElementById("search-suggestions");
         const resultsBox = document.getElementById("search-results");
