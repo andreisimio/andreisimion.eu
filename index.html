@@ -7,6 +7,8 @@
     <meta name="description" content="Enterprise Solution Architect specializing in cloud technologies and data integration">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Added Marked.js for Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
@@ -154,6 +156,11 @@
         </div>
     </footer>
 
+    <!-- Markdown Viewer Section for testing MD formatting -->
+    <section id="md-viewer" class="container mx-auto my-10 p-6 bg-white shadow-md">
+        Loading markdown...
+    </section>
+
     <script>
         // Optional: Add smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -164,6 +171,15 @@
                 });
             });
         });
+    </script>
+    <!-- Script to load and render markdown file -->
+    <script>
+      fetch('/README.md')
+        .then(response => response.text())
+        .then(markdown => {
+          document.getElementById('md-viewer').innerHTML = marked(markdown);
+        })
+        .catch(error => console.error('Markdown load error:', error));
     </script>
 </body>
 </html>
