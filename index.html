@@ -1,21 +1,22 @@
-eu/index.html
+.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrei Simion | Digital Professional</title>
+    <title>Andrei Simion | Digital Transformation Professional</title>
     <style>
         :root {
             --primary-color: #0a66c2;
-            --secondary-color: #f5f5f5;
-            --text-color: #333;
+            --secondary-color: #f8f9fa;
+            --accent-color: #004182;
+            --text-color: #2c3e50;
             --spacing: 2rem;
         }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             margin: 0;
             background: var(--secondary-color);
             color: var(--text-color);
@@ -28,28 +29,80 @@ eu/index.html
         }
 
         header {
-            background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
             color: white;
-            padding: var(--spacing) 0;
+            padding: calc(var(--spacing) * 2) 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .profile-section {
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin: 2rem auto;
-            padding: var(--spacing);
+            padding: calc(var(--spacing) * 1.5);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-section:hover {
+            transform: translateY(-5px);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin: 0;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
         }
 
         .tagline {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             opacity: 0.9;
+            margin-top: 1rem;
+        }
+
+        .experience-item {
+            margin-bottom: 2rem;
+            padding-left: 20px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .experience-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .experience-company {
+            font-weight: 500;
+            color: var(--text-color);
+            margin: 5px 0;
+        }
+
+        .experience-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
         }
 
         .skills-list {
@@ -63,9 +116,15 @@ eu/index.html
         .skills-list li {
             background: var(--primary-color);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .skills-list li:hover {
+            background: var(--accent-color);
+            transform: scale(1.05);
         }
 
         .contact-links {
@@ -79,15 +138,26 @@ eu/index.html
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            transition: all 0.3s ease;
         }
 
         .contact-links a:hover {
-            text-decoration: underline;
+            background: var(--primary-color);
+            color: white;
         }
 
         @media (max-width: 768px) {
             .container {
                 padding: 0 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .tagline {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -96,7 +166,7 @@ eu/index.html
     <header>
         <div class="container">
             <h1>Andrei Simion</h1>
-            <p class="tagline">Digital Consultant | Cloud Solutions Professional</p>
+            <p class="tagline">Digital Transformation Professional | Cloud Solutions Expert</p>
         </div>
     </header>
 
@@ -104,37 +174,57 @@ eu/index.html
         <section class="profile-section">
             <h2>About Me</h2>
             <p>
-                Experienced Digital Professional based in Brussels, Belgium. Currently working at Tata Consultancy Services, 
-                focusing on digital transformation and cloud solutions. Passionate about leveraging technology to drive 
-                business value and innovation.
+                Results-driven Digital Transformation Professional with over 10 years of experience in delivering innovative solutions 
+                across various industries. Based in Brussels, Belgium, I specialize in leading complex digital initiatives and 
+                developing cloud-based solutions that drive business value. Currently serving as Practice Lead - Digital Transformation 
+                at Tata Consultancy Services, where I focus on helping organizations navigate their digital journey successfully.
             </p>
         </section>
 
         <section class="profile-section">
-            <h2>Professional Skills</h2>
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <h3 class="experience-title">Practice Lead - Digital Transformation</h3>
+                <p class="experience-company">Tata Consultancy Services</p>
+                <p class="experience-date">2021 - Present | Brussels, Belgium</p>
+                <p>Leading digital transformation initiatives and cloud adoption strategies for major European institutions. 
+                Specializing in change management and digital solution implementation.</p>
+            </div>
+            <div class="experience-item">
+                <h3 class="experience-title">Digital Solutions Consultant</h3>
+                <p class="experience-company">TCS Digital</p>
+                <p class="experience-date">2018 - 2021 | Brussels, Belgium</p>
+                <p>Managed digital transformation projects and provided strategic consulting for enterprise clients.</p>
+            </div>
+        </section>
+
+        <section class="profile-section">
+            <h2>Areas of Expertise</h2>
             <ul class="skills-list">
-                <li>Digital Transformation</li>
+                <li>Digital Strategy</li>
                 <li>Cloud Solutions</li>
-                <li>Business Analysis</li>
-                <li>Project Management</li>
-                <li>Strategic Planning</li>
-                <li>Team Leadership</li>
+                <li>Change Management</li>
+                <li>Enterprise Architecture</li>
+                <li>Business Transformation</li>
+                <li>Program Management</li>
                 <li>Stakeholder Management</li>
+                <li>Digital Innovation</li>
                 <li>Process Optimization</li>
+                <li>Technology Consulting</li>
             </ul>
         </section>
 
         <section class="profile-section">
             <h2>Connect With Me</h2>
             <div class="contact-links">
-                <a href="https://www.linkedin.com/in/andrei-simion-eu/" target="_blank">LinkedIn Profile</a>
+                <a href="https://www.linkedin.com/in/andrei-simion-eu/" target="_blank" rel="noopener">LinkedIn Profile</a>
                 <a href="mailto:contact@andreisimion.eu">Email Me</a>
             </div>
         </section>
     </main>
 
     <footer class="container">
-        <p style="text-align: center; margin: var(--spacing) 0;">
+        <p style="text-align: center; margin: var(--spacing) 0; color: #666;">
             © 2025 Andrei Simion. All rights reserved.
         </p>
     </footer>
