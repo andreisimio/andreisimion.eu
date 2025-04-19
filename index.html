@@ -1,252 +1,142 @@
+eu/index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrei Simion - Personal Portfolio</title> <style>
-        /* Basic Reset & Body Style */
+    <title>Andrei Simion | Digital Professional</title>
+    <style>
+        :root {
+            --primary-color: #0a66c2;
+            --secondary-color: #f5f5f5;
+            --text-color: #333;
+            --spacing: 2rem;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background: var(--secondary-color);
+            color: var(--text-color);
         }
 
-        /* Container for Centering Content */
         .container {
-            max-width: 960px;
-            margin: 20px auto;
-            padding: 0 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
         }
 
-        /* Header Styles */
         header {
+            background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+            color: white;
+            padding: var(--spacing) 0;
             text-align: center;
-            padding: 40px 20px;
-            border-bottom: 1px solid #eee;
         }
 
-        header img.profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid #ddd;
+        .profile-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            padding: var(--spacing);
         }
 
-        header h1 {
-            margin: 10px 0;
-            font-size: 2.5em;
-            color: #333;
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
         }
 
-        header p.tagline {
-            font-size: 1.2em;
-            color: #666;
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
 
-        /* Section Styles */
-        section {
-            padding: 30px 20px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        section:last-of-type {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        section h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #444;
-            border-bottom: 2px solid #007bff; /* Accent color */
-            display: inline-block; /* Allows border to fit content */
-            padding-bottom: 5px;
-        }
-         /* Center the heading */
-        section h2-wrapper {
-             text-align: center;
-             margin-bottom: 25px;
-        }
-
-        /* Skills List */
-        ul.skills-list {
-            list-style: none;
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
             padding: 0;
-            text-align: center;
-        }
-        ul.skills-list li {
-            display: inline-block;
-            background-color: #e2e2e2;
-            color: #333;
-            padding: 8px 15px;
-            margin: 5px;
-            border-radius: 5px;
-            font-size: 0.95em;
+            list-style: none;
         }
 
-        /* Portfolio Item Styles */
-        .portfolio-item {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed #ddd;
+        .skills-list li {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
-        .portfolio-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .portfolio-item img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 10px;
-            border-radius: 4px;
-        }
-         .portfolio-item h3 {
-             margin-top: 0;
-             color: #007bff;
-         }
-         .portfolio-item p {
-             font-size: 0.95em;
-         }
-        .portfolio-item a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-         .portfolio-item a:hover {
-             text-decoration: underline;
-         }
 
-        /* Contact Section */
-        #contact p {
-            text-align: center;
-            font-size: 1.1em;
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: var(--spacing);
         }
-        #contact a {
-            color: #007bff;
+
+        .contact-links a {
+            color: var(--primary-color);
             text-decoration: none;
+            font-weight: 500;
         }
-         #contact a:hover {
+
+        .contact-links a:hover {
             text-decoration: underline;
-         }
-         .social-links {
-             text-align: center;
-             margin-top: 15px;
-         }
-        .social-links a {
-            margin: 0 10px;
-            font-size: 1.2em;
         }
 
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            color: #777;
-            font-size: 0.9em;
-        }
-
-        /* Basic Responsiveness */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
+            .container {
+                padding: 0 1rem;
             }
-             header p.tagline {
-                font-size: 1em;
-             }
-             .container {
-                 margin: 10px auto;
-                 padding: 0 15px;
-             }
-             section {
-                 padding: 20px 15px;
-             }
         }
-
     </style>
 </head>
 <body>
-
-    <div class="container">
-
-        <header>
-            <img src="placeholder.jpg" alt="Andrei Simion - Profile Picture" class="profile-pic">
+    <header>
+        <div class="container">
             <h1>Andrei Simion</h1>
-            <p class="tagline">Web Developer | Tech Enthusiast | Lifelong Learner</p>
-        </header>
+            <p class="tagline">Digital Consultant | Cloud Solutions Professional</p>
+        </div>
+    </header>
 
-        <main>
-            <section id="about">
-                 <div class="h2-wrapper"><h2>About Me</h2></div>
-                <p>
-                    Hello! I'm Andrei Simion, a passionate [Your Profession/Role] based in [Your Location, e.g., Brussels].
-                    I thrive on solving complex problems and creating meaningful digital experiences. My background is in
-                    [mention key area/study] and I have a strong interest in [mention specific interests].
-                    I'm always eager to learn new technologies and collaborate on exciting projects.
-                </p>
-            </section>
+    <main class="container">
+        <section class="profile-section">
+            <h2>About Me</h2>
+            <p>
+                Experienced Digital Professional based in Brussels, Belgium. Currently working at Tata Consultancy Services, 
+                focusing on digital transformation and cloud solutions. Passionate about leveraging technology to drive 
+                business value and innovation.
+            </p>
+        </section>
 
-            <section id="skills">
-                <div class="h2-wrapper"><h2>Skills</h2></div>
-                <ul class="skills-list">
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>JavaScript</li>
-                    <li>React</li> <li>Node.js</li> <li>Python</li> <li>Git & GitHub</li>
-                    <li>Problem Solving</li>
-                    <li>Communication</li>
-                    <li>Project Management</li> </ul>
-            </section>
+        <section class="profile-section">
+            <h2>Professional Skills</h2>
+            <ul class="skills-list">
+                <li>Digital Transformation</li>
+                <li>Cloud Solutions</li>
+                <li>Business Analysis</li>
+                <li>Project Management</li>
+                <li>Strategic Planning</li>
+                <li>Team Leadership</li>
+                <li>Stakeholder Management</li>
+                <li>Process Optimization</li>
+            </ul>
+        </section>
 
-            <section id="portfolio">
-                <div class="h2-wrapper"><h2>Portfolio / Projects</h2></div>
+        <section class="profile-section">
+            <h2>Connect With Me</h2>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/andrei-simion-eu/" target="_blank">LinkedIn Profile</a>
+                <a href="mailto:contact@andreisimion.eu">Email Me</a>
+            </div>
+        </section>
+    </main>
 
-                <div class="portfolio-item">
-                    <img src="project1.jpg" alt="Project 1 Screenshot">
-                    <h3>Project Title 1</h3>
-                    <p>
-                        A brief description of the project, highlighting the main features and technologies used (e.g., React, Node.js, API integration).
-                        My role involved [describe your contribution].
-                    </p>
-                    <p><a href="#" target="_blank">View Project / Code</a></p>
-                </div>
-
-                <div class="portfolio-item">
-                     <img src="project2.jpg" alt="Project 2 Screenshot">
-                    <h3>Project Title 2</h3>
-                    <p>
-                         Description of another project, focusing on different skills or challenges overcome. Built with [mention technologies].
-                        I was responsible for [describe your contribution].
-                    </p>
-                    <p><a href="#" target="_blank">View Project / Code</a></p>
-                </div>
-                 </section>
-
-            <section id="contact">
-                 <div class="h2-wrapper"><h2>Get In Touch</h2></div>
-                <p>Feel free to reach out! You can contact me via email:</p>
-                <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
-
-                <div class="social-links">
-                    <a href="#" target="_blank" title="LinkedIn">LinkedIn</a> |
-                    <a href="#" target="_blank" title="GitHub">GitHub</a> |
-                    <a href="#" target="_blank" title="Other Profile">Other</a> </div>
-            </section>
-        </main>
-
-    </div> <footer>
-        <p>&copy; 2025 Andrei Simion. All rights reserved.</p>
+    <footer class="container">
+        <p style="text-align: center; margin: var(--spacing) 0;">
+            © 2025 Andrei Simion. All rights reserved.
+        </p>
     </footer>
-
 </body>
 </html>
