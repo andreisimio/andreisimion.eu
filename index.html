@@ -1,232 +1,196 @@
-.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrei Simion | Digital Transformation Professional</title>
+    <title>Andrei Simion - Personal Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --primary-color: #0a66c2;
-            --secondary-color: #f8f9fa;
-            --accent-color: #004182;
-            --text-color: #2c3e50;
-            --spacing: 2rem;
-        }
-
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.8;
-            margin: 0;
-            background: var(--secondary-color);
-            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing);
+        /* Custom styles for enhanced visuals */
+        .bg-gradient {
+            background: linear-gradient(to right, #6b7280, #374151); /* Gradient background */
         }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Text shadow for better readability */
+        }
+        .profile-image {
+            border-radius: 50%; /* Circular profile image */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Subtle shadow */
+            border: 5px solid #e5e7eb; /* Add a border */
+        }
+        .highlight {
+            color: #f59e0b; /* Highlight color */
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 6px 10px rgba(0,0,0,0.1); /* Stronger shadow */
+            padding: 2rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+        }
+        .card:hover {
+            transform: translateY(-0.5rem); /* Slight lift on hover */
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1); /* Increased shadow on hover */
+        }
+        .btn-primary {
+            background-color: #f59e0b; /* Primary button color */
             color: white;
-            padding: calc(var(--spacing) * 2) 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-section {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin: 2rem auto;
-            padding: calc(var(--spacing) * 1.5);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-section:hover {
-            transform: translateY(-5px);
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin: 0;
-            font-weight: 700;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--primary-color);
-        }
-
-        .tagline {
-            font-size: 1.4rem;
-            opacity: 0.9;
-            margin-top: 1rem;
-        }
-
-        .experience-item {
-            margin-bottom: 2rem;
-            padding-left: 20px;
-            border-left: 3px solid var(--primary-color);
-        }
-
-        .experience-title {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            margin: 0;
-        }
-
-        .experience-company {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
             font-weight: 500;
-            color: var(--text-color);
-            margin: 5px 0;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #d97706; /* Darker shade on hover */
         }
 
-        .experience-date {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding: 0;
-            list-style: none;
-        }
-
-        .skills-list li {
-            background: var(--primary-color);
-            color: white;
-            padding: 0.7rem 1.2rem;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .skills-list li:hover {
-            background: var(--accent-color);
-            transform: scale(1.05);
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: var(--spacing);
-        }
-
-        .contact-links a {
-            color: var(--primary-color);
-            text-decoration: none;
+        .skill-badge {
+            background-color: #e0f2fe; /* Light blue for badges */
+            color: #0369a1; /* Darker blue text */
+            padding: 0.5rem 1rem;
+            border-radius: 1rem; /* Fully rounded corners */
+            margin: 0.25rem;
+            font-size: 0.875rem;
             font-weight: 500;
-            padding: 10px 20px;
-            border: 2px solid var(--primary-color);
-            border-radius: 25px;
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08); /* Subtle shadow */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
 
-        .contact-links a:hover {
-            background: var(--primary-color);
-            color: white;
+        .skill-badge:hover {
+            transform: translateY(-0.25rem);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            .tagline {
-                font-size: 1.1rem;
-            }
-        }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Andrei Simion</h1>
-            <p class="tagline">Digital Transformation Professional | Cloud Solutions Expert</p>
+<body class="bg-gray-100">
+    <header class="bg-gradient text-white py-12 px-6 text-center">
+        <div class="container mx-auto">
+            <img src="https://via.placeholder.com/150" alt="Andrei Simion" class="profile-image mx-auto mb-4"> <h1 class="text-3xl font-semibold text-shadow">Hello, I'm Andrei Simion</h1>
+            <p class="text-xl text-shadow">Enterprise Solution Architect @ European Commission</p>
+            <a href="#contact" class="btn-primary mt-6">Contact Me</a>
         </div>
     </header>
 
-    <main class="container">
-        <section class="profile-section">
-            <h2>About Me</h2>
-            <p>
-                Results-driven Digital Transformation Professional with over 10 years of experience in delivering innovative solutions 
-                across various industries. Based in Brussels, Belgium, I specialize in leading complex digital initiatives and 
-                developing cloud-based solutions that drive business value. Currently serving as Practice Lead - Digital Transformation 
-                at Tata Consultancy Services, where I focus on helping organizations navigate their digital journey successfully.
+    <main class="container mx-auto py-10 px-6">
+        <section id="about" class="card mb-10">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">About Me</h2>
+            <p class="text-gray-700 leading-relaxed">
+                As a passionate Enterprise Solutions Architect, I leverage my expertise in cloud technologies, microservices, and data integration to design and implement robust, scalable, and efficient solutions. I thrive on bridging the gap between architecture and development, fostering strong communication and collaboration. My goal is to drive innovation and deliver impactful results.
             </p>
-        </section>
-
-        <section class="profile-section">
-            <h2>Professional Experience</h2>
-            <div class="experience-item">
-                <h3 class="experience-title">Practice Lead - Digital Transformation</h3>
-                <p class="experience-company">Tata Consultancy Services</p>
-                <p class="experience-date">2021 - Present | Brussels, Belgium</p>
-                <p>Leading digital transformation initiatives and cloud adoption strategies for major European institutions. 
-                Specializing in change management and digital solution implementation.</p>
-            </div>
-            <div class="experience-item">
-                <h3 class="experience-title">Digital Solutions Consultant</h3>
-                <p class="experience-company">TCS Digital</p>
-                <p class="experience-date">2018 - 2021 | Brussels, Belgium</p>
-                <p>Managed digital transformation projects and provided strategic consulting for enterprise clients.</p>
-            </div>
-        </section>
-
-        <section class="profile-section">
-            <h2>Areas of Expertise</h2>
-            <ul class="skills-list">
-                <li>Digital Strategy</li>
-                <li>Cloud Solutions</li>
-                <li>Change Management</li>
-                <li>Enterprise Architecture</li>
-                <li>Business Transformation</li>
-                <li>Program Management</li>
-                <li>Stakeholder Management</li>
-                <li>Digital Innovation</li>
-                <li>Process Optimization</li>
-                <li>Technology Consulting</li>
+            <p class="text-gray-700 mt-4 leading-relaxed">
+                I provide services on Data & Analytics projects, including:
+            </p>
+            <ul class="list-disc list-inside text-gray-700 ml-6 mt-2 leading-relaxed">
+                <li>Solution architecture and data modeling</li>
+                <li>Data engineering</li>
+                <li>Business and technical analysis</li>
             </ul>
-        </section>
-
-        <section class="profile-section">
-            <h2>Connect With Me</h2>
-            <div class="contact-links">
-                <a href="https://www.linkedin.com/in/andrei-simion-eu/" target="_blank" rel="noopener">LinkedIn Profile</a>
-                <a href="mailto:contact@andreisimion.eu">Email Me</a>
+            <div class="mt-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-3">Key Skills</h3>
+                <div class="flex flex-wrap">
+                    <span class="skill-badge">Cloud Consulting</span>
+                    <span class="skill-badge">Continuous Integration (CI)</span>
+                    <span class="skill-badge">Application Lifecycle Management</span>
+                    <span class="skill-badge">Diagramming</span>
+                    <span class="skill-badge">Software Integration</span>
+                    <span class="skill-badge">Cross-functional Team Leadership</span>
+                    <span class="skill-badge">Microservices</span>
+                    <span class="skill-badge">Data Integration</span>
+                    <span class="skill-badge">Agile</span>
+                    <span class="skill-badge">DevOps</span>
+                </div>
             </div>
         </section>
+
+        <section id="experience" class="card mb-10">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Experience</h2>
+             <div class="space-y-8">
+                <article>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Enterprise Architecture Consultant</h3>
+                    <p class="text-gray-600 mb-1">European Commission · Self-employed · 3 yrs 4 mos</p>
+                    <p class="text-gray-600 mb-2">Jan 2024 - Present · 1 yr 4 mos</p>
+                    <ul class="list-disc list-inside text-gray-700 leading-relaxed">
+                        <li>Spearheaded the coordination of technical architecture implementation.</li>
+                        <li>Designed and architected cutting-edge software and cloud solutions.</li>
+                        <li>Engineered reliable and maintainable systems with seamless integration.</li>
+                        <li>Defined and enforced architecture principles and standards.</li>
+                        <li>Led the assessment of legacy systems for cloud migration.</li>
+                        <li>Orchestrated the integration of diverse information systems.</li>
+                        <li>Implemented Documentation as Code for Cloud using C4 Model & Structurizr.</li>
+                        <li>Championed Knowledge Management through Markdown, Dendron, and Mindmaps.</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Lead Service Architect</h3>
+                    <p class="text-gray-600 mb-1">_VOIS · 2 yrs</p>
+                    <p class="text-gray-600 mb-2">Jan 2022 - Dec 2023 · 2 yrs</p>
+                    <ul class="list-disc list-inside text-gray-700 leading-relaxed">
+                        <li>Led projects to improve processes and tools for Quality Assurance and Chargeback teams.</li>
+                        <li>Evaluated requirements and designed solutions to meet customer needs.</li>
+                        <li>Created comprehensive solution documentation.</li>
+                        <li>Designed solutions, databases, and Web APIs.</li>
+                        <li>Authored technical documentation for system workflows.</li>
+                        <li>Supported the product owner in user story development.</li>
+                        <li>Defined and reviewed solution designs.</li>
+                         <li>Ensured smooth service transitions.</li>
+                    </ul>
+                </article>
+             </div>
+        </section>
+
+        <section id="projects" class="card mb-10">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <article class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-lg font-semibold text-blue-600 mb-2">Cloud Migration Project</h3>
+                    <p class="text-gray-700 mb-2">Led the migration of a large-scale enterprise system to AWS, resulting in a 30% reduction in infrastructure costs.</p>
+                    <a href="#" class="text-yellow-500 hover:text-yellow-700 font-semibold">Learn More</a>
+                </article>
+                <article class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-lg font-semibold text-blue-600 mb-2">Microservices Architecture</h3>
+                    <p class="text-gray-700 mb-2">Designed and implemented a microservices architecture for a critical business application, improving scalability and resilience.</p>
+                     <a href="#" class="text-yellow-500 hover:text-yellow-700 font-semibold">Learn More</a>
+                </article>
+                <article class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-lg font-semibold text-blue-600 mb-2">Data Integration Platform</h3>
+                    <p class="text-gray-700 mb-2">Developed a robust data integration platform to streamline data flow across disparate systems, enhancing data accuracy and accessibility.</p>
+                    <a href="#" class="text-yellow-500 hover:text-yellow-700 font-semibold">Learn More</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="card">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Contact Me</h2>
+            <p class="text-gray-700 mb-4">
+                I'm always open to new opportunities and collaborations. Feel free to reach out to me via email or connect with me on LinkedIn.
+            </p>
+            <p class="text-gray-700">
+                Email: andrei.simion@example.com  </p>
+            <a href="https://www.linkedin.com/in/andreisimion" target="_blank" rel="noopener noreferrer" class="btn-primary mt-4">Connect on LinkedIn</a>  </section>
     </main>
 
-    <footer class="container">
-        <p style="text-align: center; margin: var(--spacing) 0; color: #666;">
-            © 2025 Andrei Simion. All rights reserved.
-        </p>
+    <footer class="bg-gray-200 text-gray-600 py-6 px-6 mt-12 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Andrei Simion. All rights reserved.</p>
+        </div>
     </footer>
+
+    <script>
+        // Optional: Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
