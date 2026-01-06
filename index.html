@@ -14,26 +14,31 @@
 <body>
     <nav class="fixed w-full bg-white shadow-md z-50">
         <div class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
+            <div class="flex flex-wrap items-center justify-between gap-4">
                 <a href="/" class="font-bold text-xl">
                     <img src="/images/logo.svg" alt="AS Logo" class="h-8">
                 </a>
-                <div class="hidden md:flex space-x-8">
+                <div class="flex flex-wrap items-center gap-4 text-sm md:text-base">
+                    <a href="#overview" class="text-gray-600 hover:text-gray-900">Overview</a>
                     <a href="#about" class="text-gray-600 hover:text-gray-900">About</a>
+                    <a href="#highlights" class="text-gray-600 hover:text-gray-900">Highlights</a>
                     <a href="#experience" class="text-gray-600 hover:text-gray-900">Experience</a>
                     <a href="#projects" class="text-gray-600 hover:text-gray-900">Projects</a>
-                    <a href="/blog/index.html" class="text-gray-600 hover:text-gray-900">Blog</a>
                     <a href="#contact" class="text-gray-600 hover:text-gray-900">Contact</a>
+                    <a href="/blog/index.html" class="text-gray-600 hover:text-gray-900">Blog</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <header class="bg-gradient text-white py-12 px-6 text-center">
-        <div class="container mx-auto">
-            <img src="/images/profile.jpg" alt="Andrei Simion" class="profile-image mx-auto mb-4 rounded-full w-32 h-32 object-cover border-4 border-white shadow-lg"> 
+    <header class="bg-gradient text-white py-16 px-6 text-center">
+        <div class="container mx-auto max-w-3xl">
+            <img src="/images/profile.jpg" alt="Andrei Simion" class="profile-image mx-auto mb-4 rounded-full w-32 h-32 object-cover border-4 border-white shadow-lg">
             <h1 class="text-3xl font-semibold text-shadow">Hello, I'm Andrei Simion</h1>
             <p class="text-xl text-shadow">Enterprise Solution Architect</p>
+            <p class="mt-4 text-base text-white/90">
+                I help organizations design modern cloud and integration platforms that are resilient, scalable, and aligned with business goals.
+            </p>
         </div>
     </header>
 
@@ -46,67 +51,127 @@
         </div>
     </div>
 
-    <main class="container mx-auto py-10 px-6">
-        <!-- ...existing sections (About, Experience, Projects, Contact)... -->
-        <section id="about" class="card mb-10">
-            <h2 class="text-2xl font-semibold mb-6 text-gray-800">About Me</h2>
-            <div class="space-y-4">
-                <p class="text-gray-700 leading-relaxed">
-                    As a visionary Enterprise and Cloud Architecture Consultant, I excel in harmonizing cutting-edge technology with strategic business objectives. With over 16 years of distinguished experience in IT service solutions, I'm passionate about transforming digital landscapes and empowering organizations to thrive in the cloud era through innovative architectural solutions.
-                </p>
-                
-                <div class="bg-blue-50 p-4 rounded-lg">
-                    <h3 class="text-lg font-semibold text-blue-800 mb-2">Professional Excellence</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>Certified in AWS, PRINCE2, and ITIL4</li>
-                        <li>Expert in ERP, BI, CRM, and CMDB solutions</li>
-                        <li>Award recipient: "Create the future" and "Shining star" awards</li>
-                        <li><a href="/professional/data-modeling.html" class="text-blue-600 hover:text-blue-800">Read my article on Data Modeling Best Practices →</a></li>
+    <main class="container mx-auto py-10 px-6 space-y-10">
+        <section id="overview" class="card p-8">
+            <div class="grid gap-6 lg:grid-cols-[2fr,1fr] lg:items-start">
+                <div>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Overview</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        I partner with product and engineering teams to shape enterprise architecture, build cloud foundations,
+                        and modernize complex systems. My focus is on pragmatic, scalable solutions that deliver measurable business value.
+                    </p>
+                    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                        <div class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm">
+                            <p class="text-sm text-gray-500">Experience</p>
+                            <p class="text-lg font-semibold text-gray-800">16+ years in IT services</p>
+                        </div>
+                        <div class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm">
+                            <p class="text-sm text-gray-500">Focus</p>
+                            <p class="text-lg font-semibold text-gray-800">Cloud, integration, and service design</p>
+                        </div>
+                        <div class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm">
+                            <p class="text-sm text-gray-500">Approach</p>
+                            <p class="text-lg font-semibold text-gray-800">Architecture aligned to outcomes</p>
+                        </div>
+                        <div class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm">
+                            <p class="text-sm text-gray-500">Availability</p>
+                            <p class="text-lg font-semibold text-gray-800">Consulting & advisory</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-blue-800 mb-3">Quick Links</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <span class="mt-1 text-blue-600">•</span>
+                            <span>Explore my <a href="/professional/data-modeling.html" class="text-blue-600 hover:text-blue-800">Data Modeling Best Practices</a> article.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="mt-1 text-blue-600">•</span>
+                            <span>View recent <a href="#projects" class="text-blue-600 hover:text-blue-800">case studies</a>.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="mt-1 text-blue-600">•</span>
+                            <span>Connect on <a href="https://www.linkedin.com/in/andrei-simion-eu/" class="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</span>
+                        </li>
                     </ul>
                 </div>
+            </div>
+        </section>
 
-                <p class="text-gray-700 leading-relaxed">
-                    My track record includes successful leadership in service design, process improvement, automation, and integration projects, consistently delivering increased efficiency and customer satisfaction while reducing costs.
-                </p>
+        <section id="about" class="card p-8">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">About Me</h2>
+            <div class="grid gap-6 lg:grid-cols-2">
+                <div class="space-y-4">
+                    <p class="text-gray-700 leading-relaxed">
+                        As a visionary Enterprise and Cloud Architecture Consultant, I excel in harmonizing cutting-edge technology with strategic business objectives. With over 16 years of distinguished experience in IT service solutions, I'm passionate about transforming digital landscapes and empowering organizations to thrive in the cloud era through innovative architectural solutions.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        My track record includes successful leadership in service design, process improvement, automation, and integration projects, consistently delivering increased efficiency and customer satisfaction while reducing costs.
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Core Expertise</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge">Cloud Architecture</span>
+                        <span class="skill-badge">Digital Transformation</span>
+                        <span class="skill-badge">Solution Design</span>
+                        <span class="skill-badge">Enterprise Integration</span>
+                        <span class="skill-badge">Process Optimization</span>
+                        <span class="skill-badge">Team Leadership</span>
+                        <span class="skill-badge">AWS</span>
+                        <span class="skill-badge">PRINCE2</span>
+                        <span class="skill-badge">ITIL4</span>
+                        <span class="skill-badge">ERP Solutions</span>
+                        <span class="skill-badge">Business Intelligence</span>
+                        <span class="skill-badge">Service Design</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <div class="bg-yellow-50 p-4 rounded-lg">
+        <section id="highlights" class="card p-8">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Highlights</h2>
+            <div class="grid gap-6 md:grid-cols-3">
+                <div class="bg-blue-50 p-5 rounded-lg">
+                    <h3 class="text-lg font-semibold text-blue-800 mb-2">Professional Excellence</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>Certified in AWS, PRINCE2, and ITIL4</li>
+                        <li>Expert in ERP, BI, CRM, and CMDB solutions</li>
+                        <li>Award recipient: "Create the future" and "Shining star"</li>
+                    </ul>
+                </div>
+                <div class="bg-yellow-50 p-5 rounded-lg">
                     <h3 class="text-lg font-semibold text-yellow-800 mb-2">Leadership & Communication</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <ul class="space-y-2 text-gray-700">
                         <li>Excellent stakeholder management</li>
                         <li>Proven servant leadership approach</li>
                         <li>Bridge between technical and business divisions</li>
                         <li>Team formation and coaching expertise</li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="mt-8">
-                <h3 class="text-lg font-semibold text-gray-800 mb-3">Core Expertise</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="skill-badge">Cloud Architecture</span>
-                    <span class="skill-badge">Digital Transformation</span>
-                    <span class="skill-badge">Solution Design</span>
-                    <span class="skill-badge">Enterprise Integration</span>
-                    <span class="skill-badge">Process Optimization</span>
-                    <span class="skill-badge">Team Leadership</span>
-                    <span class="skill-badge">AWS</span>
-                    <span class="skill-badge">PRINCE2</span>
-                    <span class="skill-badge">ITIL4</span>
-                    <span class="skill-badge">ERP Solutions</span>
-                    <span class="skill-badge">Business Intelligence</span>
-                    <span class="skill-badge">Service Design</span>
+                <div class="bg-white border border-gray-100 p-5 rounded-lg shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Working Style</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>Outcome-focused architectural roadmaps</li>
+                        <li>Documentation as Code with C4 Model & Structurizr</li>
+                        <li>Knowledge management with Markdown & mindmaps</li>
+                        <li>Automation-first delivery mindset</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section id="experience" class="card mb-10">
+        <section id="experience" class="card p-8">
             <h2 class="text-2xl font-semibold mb-6 text-gray-800">Experience</h2>
-             <div class="space-y-8">
-                <article>
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Enterprise Architecture Consultant</h3>
-                    <p class="text-gray-600 mb-1">Self-employed · 3 yrs 4 mos</p>
-                    <p class="text-gray-600 mb-2">Jan 2024 - Present · 1 yr 4 mos</p>
-                    <ul class="list-disc list-inside text-gray-700 leading-relaxed">
+            <div class="space-y-6">
+                <article class="rounded-lg border border-gray-100 p-5 shadow-sm">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h3 class="text-xl font-semibold text-blue-600">Enterprise Architecture Consultant</h3>
+                        <span class="text-sm text-gray-500">Jan 2024 - Present · 1 yr 4 mos</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Self-employed · 3 yrs 4 mos</p>
+                    <ul class="grid gap-2 text-gray-700 sm:grid-cols-2">
                         <li>Spearheaded the coordination of technical architecture implementation.</li>
                         <li>Designed and architected cutting-edge software and cloud solutions.</li>
                         <li>Engineered reliable and maintainable systems with seamless integration.</li>
@@ -118,11 +183,13 @@
                     </ul>
                 </article>
 
-                <article>
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Lead Service Architect</h3>
-                    <p class="text-gray-600 mb-1">_VOIS · 2 yrs</p>
-                    <p class="text-gray-600 mb-2">Jan 2022 - Dec 2023 · 2 yrs</p>
-                    <ul class="list-disc list-inside text-gray-700 leading-relaxed">
+                <article class="rounded-lg border border-gray-100 p-5 shadow-sm">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h3 class="text-xl font-semibold text-blue-600">Lead Service Architect</h3>
+                        <span class="text-sm text-gray-500">Jan 2022 - Dec 2023 · 2 yrs</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">_VOIS · 2 yrs</p>
+                    <ul class="grid gap-2 text-gray-700 sm:grid-cols-2">
                         <li>Led projects to improve processes and tools for Quality Assurance and Chargeback teams.</li>
                         <li>Evaluated requirements and designed solutions to meet customer needs.</li>
                         <li>Created comprehensive solution documentation.</li>
@@ -130,33 +197,46 @@
                         <li>Authored technical documentation for system workflows.</li>
                         <li>Supported the product owner in user story development.</li>
                         <li>Defined and reviewed solution designs.</li>
-                         <li>Ensured smooth service transitions.</li>
+                        <li>Ensured smooth service transitions.</li>
                     </ul>
-                </article>
-             </div>
-        </section>
-
-        <section id="projects" class="card mb-10">
-            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Projects</h2>
-            <div class="grid grid-cols-1 gap-6">
-                <article class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
-                    <h3 class="text-lg font-semibold text-blue-600 mb-2">Process Improvement Project</h3>
-                    <p class="text-gray-700 mb-4">Comprehensive process and tools improvement for QA and Chargeback teams, driving efficiency through automation and standardization.</p>
-                    <div class="flex items-center gap-4">
-                        <a href="/projects/process-improvement.html" class="text-yellow-500 hover:text-yellow-700 font-semibold">View Case Study →</a>
-                    </div>
                 </article>
             </div>
         </section>
 
-        <section id="contact" class="card">
+        <section id="projects" class="card p-8">
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Projects</h2>
+            <div class="grid gap-6 md:grid-cols-2">
+                <article class="bg-white rounded-lg border border-gray-100 p-5 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                    <p class="text-sm text-gray-500 mb-2">Process Optimization</p>
+                    <h3 class="text-lg font-semibold text-blue-600 mb-2">Process Improvement Project</h3>
+                    <p class="text-gray-700 mb-4">Comprehensive process and tools improvement for QA and Chargeback teams, driving efficiency through automation and standardization.</p>
+                    <a href="/projects/process-improvement.html" class="text-yellow-500 hover:text-yellow-700 font-semibold">View Case Study →</a>
+                </article>
+                <article class="bg-gray-50 rounded-lg border border-dashed border-gray-300 p-5 flex flex-col justify-between">
+                    <div>
+                        <p class="text-sm text-gray-500 mb-2">Coming next</p>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Integration Modernization</h3>
+                        <p class="text-gray-600">A showcase of enterprise integration patterns, observability, and automation.</p>
+                    </div>
+                    <span class="mt-4 inline-flex items-center text-sm text-gray-500">In preparation</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="card p-8">
             <h2 class="text-2xl font-semibold mb-6 text-gray-800">Contact Me</h2>
-            <p class="text-gray-700 mb-4">
-                I'm always open to new opportunities and collaborations. Feel free to reach out to me via email or connect with me on LinkedIn.
-            </p>
-            <p class="text-gray-700">
-                Email: andrei.simion@example.com  </p>
-            <a href="https://www.linkedin.com/in/andrei-simion-eu/" target="_blank" rel="noopener noreferrer" class="btn-primary mt-4">Connect on LinkedIn</a>  </section>
+            <div class="grid gap-6 lg:grid-cols-[2fr,1fr]">
+                <div>
+                    <p class="text-gray-700 mb-4">
+                        I'm always open to new opportunities and collaborations. Feel free to reach out to me via email or connect with me on LinkedIn.
+                    </p>
+                    <p class="text-gray-700 font-medium">Email: andrei.simion@example.com</p>
+                </div>
+                <div class="flex items-center">
+                    <a href="https://www.linkedin.com/in/andrei-simion-eu/" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-gray-200 text-gray-600 py-6 px-6 mt-12 text-center">
