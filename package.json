@@ -1,0 +1,29 @@
+{
+  "name": "andreisimion.eu",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Andrei Simion - Enterprise Architecture & AI Adoption Consulting",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "astro check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreisimio/andreisimion.eu"
+  },
+  "author": "Andrei Simion",
+  "license": "MIT",
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/typography": "^0.5.19",
+    "astro": "^5.17.1",
+    "lucide-astro": "^0.556.0",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^3.4.19"
+  }
+}

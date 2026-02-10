@@ -1,0 +1,76 @@
+---
+title: "Documentation as Code: Architecture Diagrams with C4 Model and Structurizr"
+description: "How to keep architecture documentation alive by treating it as code — versioned, reviewed, and always in sync with reality."
+date: 2026-01-15
+tags: ["Documentation", "C4 Model", "Architecture"]
+---
+
+Architecture diagrams have a reputation problem. They're created once, presented in a meeting, and then left to rot in a Confluence page until they no longer reflect reality.
+
+**Documentation as Code** solves this by treating architecture artifacts the same way we treat application code: version-controlled, peer-reviewed, and continuously integrated.
+
+## The Problem with Traditional Diagrams
+
+Most architecture documentation suffers from three issues:
+
+1. **Staleness** — Diagrams are snapshots that decay the moment they're drawn.
+2. **Ambiguity** — Boxes and arrows mean different things to different people.
+3. **Fragmentation** — Diagrams live in PowerPoint, Visio, or Miro — disconnected from the systems they describe.
+
+## Enter the C4 Model
+
+The [C4 Model](https://c4model.com/), created by Simon Brown, provides a structured way to describe software architecture at four levels:
+
+- **Context** — How the system fits into the world (users, external systems).
+- **Container** — The high-level building blocks (applications, databases, message queues).
+- **Component** — The internal structure of each container.
+- **Code** — Class-level detail (optional, often auto-generated).
+
+The power of C4 is its **hierarchical zoom**: stakeholders see the big picture, developers see the details, and everyone uses the same model.
+
+## Structurizr: Architecture as Code
+
+[Structurizr](https://structurizr.com/) takes the C4 Model and makes it executable. Instead of dragging boxes in a drawing tool, you define your architecture in a DSL:
+
+```
+workspace {
+    model {
+        user = person "Business User"
+        system = softwareSystem "Order Management" {
+            webapp = container "Web Application" "React SPA"
+            api = container "API" "Node.js REST API"
+            db = container "Database" "PostgreSQL"
+        }
+        user -> webapp "Places orders"
+        webapp -> api "Calls"
+        api -> db "Reads/writes"
+    }
+    views {
+        container system {
+            include *
+            autolayout lr
+        }
+    }
+}
+```
+
+This definition lives in your Git repository. It's reviewed in pull requests. It's always current.
+
+## Why This Matters
+
+When architecture documentation is code:
+
+- **It stays current** — Changes to architecture go through the same review process as code changes.
+- **It's versioned** — You can see how the architecture evolved over time.
+- **It's consistent** — The C4 Model eliminates ambiguity about what each diagram level represents.
+- **It's automatable** — CI pipelines can generate and publish diagrams automatically.
+
+## Getting Started
+
+1. **Start with Context** — Map your system boundaries and external dependencies.
+2. **Add Containers** — Identify the major deployable units.
+3. **Version it** — Put the Structurizr DSL file in your repo.
+4. **Review it** — Include architecture changes in your PR process.
+5. **Publish it** — Use Structurizr Lite or the cloud service to share interactive diagrams.
+
+Architecture documentation doesn't have to be a chore. When it's treated as code, it becomes a living artifact that teams actually trust and use.

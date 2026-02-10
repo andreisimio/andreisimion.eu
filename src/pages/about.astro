@@ -1,0 +1,129 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CtaSection from "../components/CtaSection.astro";
+import { SITE } from "../consts";
+---
+
+<BaseLayout
+  title="About"
+  description="Andrei Simion — 16+ years in IT services, specializing in enterprise architecture, cloud solutions, and AI-driven transformation."
+>
+  <!-- Header -->
+  <section class="bg-surface-100 dark:bg-surface-900 section-padding">
+    <div class="section-container">
+      <p class="text-brand-600 dark:text-brand-400 font-medium mb-2">About</p>
+      <h1 class="heading-1 mb-4">Building Bridges Between Technology and Business</h1>
+      <p class="text-muted text-lg max-w-2xl">
+        16+ years of helping organizations design, modernize, and govern their technology landscape.
+      </p>
+    </div>
+  </section>
+
+  <!-- Profile -->
+  <section class="section-container section-padding">
+    <div class="grid gap-12 lg:grid-cols-5">
+      <div class="lg:col-span-3 space-y-6">
+        <h2 class="heading-2">The Story</h2>
+        <p class="text-muted leading-relaxed">
+          I'm an Enterprise Architecture and AI Adoption Consultant based in Europe. Over the past 16+ years,
+          I've worked across telecom, financial services, and technology sectors — leading architecture
+          initiatives that range from cloud migrations to full-scale digital transformation programs.
+        </p>
+        <p class="text-muted leading-relaxed">
+          My approach is rooted in pragmatism: I believe architecture should serve business outcomes,
+          not the other way around. I combine structured methodology (TOGAF, C4 Model, Structurizr) with
+          real-world delivery experience to create solutions that stakeholders trust and developers can implement.
+        </p>
+        <p class="text-muted leading-relaxed">
+          More recently, I've focused on helping organizations navigate AI adoption — building frameworks
+          that identify high-value use cases, assess readiness, and implement responsibly. The intersection of
+          enterprise architecture and AI is where the most impactful work happens.
+        </p>
+      </div>
+
+      <div class="lg:col-span-2">
+        <div class="card p-6 sticky top-24">
+          <h3 class="heading-3 mb-4">Quick Facts</h3>
+          <dl class="space-y-4">
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-muted font-medium">Experience</dt>
+              <dd class="font-medium">16+ years in IT services</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-muted font-medium">Focus</dt>
+              <dd class="font-medium">Architecture, AI, Integration</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-muted font-medium">Certifications</dt>
+              <dd class="font-medium">AWS, PRINCE2, ITIL4</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-muted font-medium">Location</dt>
+              <dd class="font-medium">Europe (Remote-first)</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-muted font-medium">Languages</dt>
+              <dd class="font-medium">English, Romanian</dd>
+            </div>
+          </dl>
+          <hr class="my-4 border-surface-200 dark:border-surface-700" />
+          <a
+            href={SITE.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary w-full text-center"
+          >
+            Connect on LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="bg-surface-100 dark:bg-surface-900 section-padding">
+    <div class="section-container">
+      <h2 class="heading-2 mb-8 text-center">Guiding Principles</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {[
+          { title: "Outcome-Driven", desc: "Every architecture decision should trace back to a business objective." },
+          { title: "Documentation as Code", desc: "Architecture artifacts that live alongside code — versioned, reviewed, and always current." },
+          { title: "Pragmatic Governance", desc: "Standards that enable teams rather than slow them down." },
+          { title: "Knowledge Sharing", desc: "Empowering teams to sustain and evolve architecture independently." },
+        ].map((p) => (
+          <div class="card p-6 animate-on-scroll">
+            <h3 class="heading-3 mb-2">{p.title}</h3>
+            <p class="text-sm text-muted">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Toolstack -->
+  <section class="section-container section-padding">
+    <h2 class="heading-2 mb-8 text-center">Toolstack & Frameworks</h2>
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {[
+        "C4 Model & Structurizr",
+        "TOGAF",
+        "AWS Cloud",
+        "Azure",
+        "PRINCE2",
+        "ITIL4",
+        "Apache Kafka",
+        "REST & GraphQL APIs",
+        "Markdown & Dendron",
+        "Mermaid & PlantUML",
+        "Python & Automation",
+        "Git & CI/CD",
+      ].map((tool) => (
+        <div class="px-4 py-3 rounded-xl bg-surface-100 dark:bg-surface-800 text-sm font-medium text-center animate-on-scroll">
+          {tool}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CtaSection />
+</BaseLayout>

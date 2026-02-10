@@ -1,0 +1,29 @@
+---
+import { SITE } from "../consts";
+---
+
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-brand-600 to-brand-800 dark:from-brand-800 dark:to-brand-950"></div>
+  <div class="relative section-container py-16 md:py-24 text-center">
+    <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4 animate-on-scroll">
+      Ready to Architect Your Next Move?
+    </h2>
+    <p class="text-brand-100 max-w-xl mx-auto mb-8 animate-on-scroll">
+      Whether you're modernizing legacy systems, adopting AI, or rethinking your enterprise architecture
+      — let's discuss how to get there.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 animate-on-scroll">
+      <a href="/contact" class="btn-primary !bg-white !text-brand-700 hover:!bg-brand-50">
+        Get in Touch
+      </a>
+      <a
+        href={SITE.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-secondary !border-white/30 !text-white hover:!bg-white/10"
+      >
+        Connect on LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
