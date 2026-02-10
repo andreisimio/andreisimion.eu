@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CtaSection from "../../components/CtaSection.astro";
+import { getCollection } from "astro:content";
+
+const studies = (await getCollection("case-studies"))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout
+  title="Case Studies"
+  description="Real-world examples of enterprise architecture, AI adoption, and digital transformation projects."
+>
+  <section class="bg-surface-100 dark:bg-surface-900 section-padding">
+    <div class="section-container">
+      <p class="text-brand-600 dark:text-brand-400 font-medium mb-2">Case Studies</p>
+      <h1 class="heading-1 mb-4">Results That Speak</h1>
+      <p class="text-muted text-lg max-w-2xl">
+        A selection of projects demonstrating measurable outcomes in architecture,
+        integration, and process transformation.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-container section-padding">
+    <div class="grid gap-8">
+      {studies.map((study) => (
+        <a href={`/case-studies/${study.id}`} class="card p-8 group animate-on-scroll block">
+          <div class="grid gap-6 lg:grid-cols-3">
+            <div class="lg:col-span-2">
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-100 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300">
+                  {study.data.industry}
+                </span>
+                {study.data.tags.slice(0, 2).map((tag) => (
+                  <span class="px-3 py-1 text-xs font-medium rounded-full bg-surface-100 text-surface-700 dark:bg-surface-800 dark:text-surface-200">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <h2 class="heading-2 mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                {study.data.title}
+              </h2>
+              <p class="text-sm text-muted mb-1">Client: {study.data.client}</p>
+              <p class="text-muted leading-relaxed">{study.data.description}</p>
+            </div>
+            <div>
+              <h3 class="text-sm font-medium uppercase tracking-wider text-muted mb-3">Key Results</h3>
+              <ul class="space-y-2">
+                {study.data.results.map((result) => (
+                  <li class="flex items-start gap-2 text-sm">
+                    <svg class="w-4 h-4 mt-0.5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {result}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <CtaSection />
+</BaseLayout>

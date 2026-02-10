@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ServiceGrid from "../components/ServiceGrid.astro";
+import CtaSection from "../components/CtaSection.astro";
+---
+
+<BaseLayout
+  title="Services"
+  description="Enterprise Architecture, AI Adoption, Data Integration, Process Automation, and Cloud Advisory services."
+>
+  <!-- Header -->
+  <section class="bg-surface-100 dark:bg-surface-900 section-padding">
+    <div class="section-container">
+      <p class="text-brand-600 dark:text-brand-400 font-medium mb-2">Services</p>
+      <h1 class="heading-1 mb-4">How I Help Organizations</h1>
+      <p class="text-muted text-lg max-w-2xl">
+        From defining architecture principles to hands-on AI integration
+        — each engagement is tailored to your context and goals.
+      </p>
+    </div>
+  </section>
+
+  <ServiceGrid />
+
+  <!-- Engagement models -->
+  <section class="section-container section-padding bg-surface-100 dark:bg-surface-900">
+    <div class="text-center mb-12">
+      <h2 class="heading-2 mb-4">Engagement Models</h2>
+      <p class="text-muted max-w-2xl mx-auto">
+        Flexible formats designed to match your needs and pace.
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="card p-6 text-center animate-on-scroll">
+        <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 class="heading-3 mb-2">Advisory Sprint</h3>
+        <p class="text-sm text-muted">2-4 week focused engagement for assessment, strategy, or architecture review.</p>
+      </div>
+
+      <div class="card p-6 text-center animate-on-scroll">
+        <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+        </div>
+        <h3 class="heading-3 mb-2">Project Embedding</h3>
+        <p class="text-sm text-muted">Embedded architecture support throughout a project lifecycle — from design to delivery.</p>
+      </div>
+
+      <div class="card p-6 text-center animate-on-scroll">
+        <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="heading-3 mb-2">Retainer</h3>
+        <p class="text-sm text-muted">Ongoing architecture advisory and governance on a flexible monthly basis.</p>
+      </div>
+    </div>
+  </section>
+
+  <CtaSection />
+</BaseLayout>

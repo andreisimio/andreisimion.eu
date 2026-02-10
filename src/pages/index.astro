@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import ValueProps from "../components/ValueProps.astro";
+import ServiceGrid from "../components/ServiceGrid.astro";
+import ProcessSteps from "../components/ProcessSteps.astro";
+import Testimonials from "../components/Testimonials.astro";
+import CtaSection from "../components/CtaSection.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+---
+
+<BaseLayout>
+  <Hero />
+  <ValueProps />
+
+  <!-- Services preview -->
+  <section class="section-container section-padding bg-surface-100 dark:bg-surface-900">
+    <div class="text-center mb-12">
+      <h2 class="heading-2 mb-4">What I Do</h2>
+      <p class="text-muted max-w-2xl mx-auto">
+        Focused consulting at the intersection of enterprise architecture, AI adoption, and digital transformation.
+      </p>
+    </div>
+    <ServiceGrid compact />
+  </section>
+
+  <ProcessSteps />
+  <Testimonials />
+
+  <!-- Recent insights -->
+  {posts.length > 0 && (
+    <section class="section-container section-padding">
+      <div class="text-center mb-12">
+        <h2 class="heading-2 mb-4">Latest Insights</h2>
+        <p class="text-muted max-w-2xl mx-auto">
+          Thoughts on architecture, AI, and building better systems.
+        </p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            tags={post.data.tags}
+            slug={post.id}
+          />
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/blog" class="btn-secondary">
+          View All Insights
+        </a>
+      </div>
+    </section>
+  )}
+
+  <CtaSection />
+</BaseLayout>

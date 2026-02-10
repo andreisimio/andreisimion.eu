@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../consts";
+---
+
+<BaseLayout title="Legal Notice" description="Legal notice and imprint for andreisimion.eu">
+  <section class="section-container section-padding">
+    <div class="max-w-3xl mx-auto prose-custom">
+      <h1>Legal Notice (Impressum)</h1>
+      <p><em>Last updated: February 2026</em></p>
+
+      <h2>Website Operator</h2>
+      <p>
+        <strong>Andrei Simion</strong><br />
+        Enterprise Architecture & AI Adoption Consulting<br />
+        Europe
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a><br />
+        LinkedIn: <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer">{SITE.linkedin}</a>
+      </p>
+
+      <h2>Disclaimer</h2>
+      <p>
+        The content of this website is provided for general informational purposes only.
+        While every effort is made to keep information accurate and up-to-date, no guarantees
+        are made regarding completeness, accuracy, or reliability.
+      </p>
+
+      <h2>Liability for Links</h2>
+      <p>
+        This website may contain links to external websites. The operator has no influence over
+        the content of linked sites and accepts no liability for them. The respective providers
+        or operators are responsible for the content of linked pages.
+      </p>
+
+      <h2>Copyright</h2>
+      <p>
+        Content and works on this website are subject to copyright. Reproduction, editing,
+        distribution, or any form of use beyond the scope of copyright law requires written
+        consent from the author.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
