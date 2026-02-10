@@ -1,11 +1,11 @@
 export const SITE = {
   title: "Andrei Simion",
   description:
-    "Enterprise Architecture & AI Adoption Consulting. Helping organizations design resilient systems, adopt AI strategically, and accelerate digital transformation.",
+    "Enterprise Architecture, Data Architecture & Intelligent Automation. Helping organizations streamline processes, adopt AI practically, and build data-driven operations.",
   url: "https://www.andreisimion.eu",
   author: "Andrei Simion",
-  tagline: "Architecture That Thinks Ahead",
-  email: "contact@andreisimion.eu",
+  tagline: "Structure. Automate. Scale.",
+  email: "simion.andrei@gmail.com",
   linkedin: "https://www.linkedin.com/in/andrei-simion-eu/",
 } as const;
 
@@ -26,61 +26,61 @@ export const SERVICES = [
     icon: "building-2",
     features: [
       "Architecture roadmaps & governance",
-      "Cloud foundation design",
-      "C4 Model documentation",
+      "C4 Model & Structurizr documentation",
       "Technology standards & principles",
+      "Solution design & review",
     ],
   },
   {
-    title: "AI Adoption Strategy",
-    slug: "ai-adoption",
+    title: "Data Architecture",
+    slug: "data-architecture",
     summary:
-      "Integrate AI into your operations with a clear, risk-aware adoption framework.",
+      "Design robust data foundations — from modeling and integration to governance and analytics-ready pipelines.",
+    icon: "database",
+    features: [
+      "Data modeling & common data models",
+      "Data lake & warehouse architecture",
+      "ETL/ELT pipeline design",
+      "Data quality & governance frameworks",
+    ],
+  },
+  {
+    title: "AI & Intelligent Automation",
+    slug: "ai-automation",
+    summary:
+      "Put AI to work with practical automation — using Claude, n8n, and LLM-powered workflows that deliver real results.",
     icon: "brain-circuit",
     features: [
-      "AI readiness assessment",
-      "Use-case identification & prioritization",
-      "LLM integration patterns",
+      "AI-assisted workflow design with Claude",
+      "n8n automation pipelines",
+      "LLM integration & prompt engineering",
       "Responsible AI governance",
     ],
   },
   {
-    title: "Data & Integration",
-    slug: "data-integration",
+    title: "Business Process Optimization",
+    slug: "business-processes",
     summary:
-      "Unify data across platforms with modern integration and data architecture.",
-    icon: "database",
-    features: [
-      "Data platform design",
-      "API-first integration strategy",
-      "ETL/ELT pipeline architecture",
-      "Data quality & governance",
-    ],
-  },
-  {
-    title: "Process Automation",
-    slug: "process-automation",
-    summary:
-      "Eliminate manual bottlenecks and drive efficiency through intelligent automation.",
+      "Map, streamline, and automate business processes to eliminate waste and accelerate throughput.",
     icon: "workflow",
     features: [
-      "Process mining & analysis",
-      "Automation roadmap",
-      "RPA & low-code solutions",
+      "Process mapping & analysis",
+      "Workflow automation with n8n & low-code",
       "KPI-driven optimization",
+      "Change management & adoption",
     ],
   },
   {
-    title: "Cloud & Platform Advisory",
-    slug: "cloud-advisory",
+    title: "Professional Workflows & Tooling",
+    slug: "professional-workflows",
     summary:
-      "Navigate cloud adoption with confidence, from migration to multi-cloud governance.",
-    icon: "cloud",
+      "Build modern, efficient development and documentation workflows with best-in-class tools.",
+    icon: "terminal",
     features: [
-      "Cloud migration strategy",
-      "Multi-cloud governance",
-      "Cost optimization",
-      "Security & compliance",
+      "VS Code & Claude Code setup",
+      "Documentation as Code (C4, Structurizr, MDX)",
+      "Git-based knowledge management",
+      "CI/CD & DevOps practices",
     ],
   },
 ] as const;
