@@ -1,0 +1,78 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { SITE } from "../consts";
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  updated?: Date;
+  tags?: string[];
+  image?: string;
+}
+
+const { title, description, date, updated, tags = [], image } = Astro.props;
+const formattedDate = date.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+const formattedUpdated = updated?.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<BaseLayout title={title} description={description} image={image} type="article">
+  <article class="section-container section-padding">
+    <header class="max-w-3xl mx-auto mb-12">
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-1 text-sm text-muted hover:text-brand-600 dark:hover:text-brand-400 mb-6"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Insights
+      </a>
+      <h1 class="heading-1 mb-4">{title}</h1>
+      <p class="text-lg text-muted mb-4">{description}</p>
+      <div class="flex flex-wrap items-center gap-4 text-sm text-muted">
+        <time datetime={date.toISOString()}>{formattedDate}</time>
+        {formattedUpdated && <span>Updated: {formattedUpdated}</span>}
+      </div>
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-4">
+          {tags.map((tag) => (
+            <span class="px-3 py-1 text-xs font-medium rounded-full bg-brand-100 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <div class="max-w-3xl mx-auto prose-custom">
+      <slot />
+    </div>
+  </article>
+
+  <!-- Article structured data -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description: description,
+      datePublished: date.toISOString(),
+      dateModified: (updated || date).toISOString(),
+      author: {
+        "@type": "Person",
+        name: SITE.author,
+        url: SITE.url,
+      },
+    })}
+  />
+</BaseLayout>
