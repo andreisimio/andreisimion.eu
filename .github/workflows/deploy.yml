@@ -9,8 +9,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: deploy-astro
+  cancel-in-progress: true
 
 jobs:
   deploy:
