@@ -7,6 +7,7 @@ import ProcessSteps from "../components/ProcessSteps.astro";
 import Testimonials from "../components/Testimonials.astro";
 import CtaSection from "../components/CtaSection.astro";
 import BlogCard from "../components/BlogCard.astro";
+import StatsBar from "../components/StatsBar.astro";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog", ({ data }) => !data.draft))
@@ -16,6 +17,7 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
 
 <BaseLayout>
   <Hero />
+  <StatsBar />
   <ValueProps />
 
   <!-- Services preview -->
@@ -42,15 +44,20 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
         </p>
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
-          <BlogCard
-            title={post.data.title}
-            description={post.data.description}
-            date={post.data.date}
-            tags={post.data.tags}
-            slug={post.id}
-          />
-        ))}
+        {posts.map((post) => {
+          const words = post.body ? post.body.split(/\s+/).length : 0;
+          const readingTime = Math.max(1, Math.ceil(words / 230));
+          return (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              tags={post.data.tags}
+              slug={post.id}
+              readingTime={readingTime}
+            />
+          );
+        })}
       </div>
       <div class="text-center mt-8">
         <a href="/blog" class="btn-secondary">
