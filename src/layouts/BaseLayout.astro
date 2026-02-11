@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 import { SITE } from "../consts";
 
 interface Props {
@@ -71,6 +72,13 @@ const canonicalUrl = new URL(Astro.url.pathname, SITE.url);
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.title} — Insights`} href="/rss.xml" />
+
+    <!-- View Transitions -->
+    <ViewTransitions />
 
     <!-- Dark mode script (prevent flash) -->
     <script is:inline>
@@ -80,9 +88,9 @@ const canonicalUrl = new URL(Astro.url.pathname, SITE.url);
       }
     </script>
 
-    <!-- Analytics placeholder (env-based) -->
-    {import.meta.env.PUBLIC_ANALYTICS_ID && import.meta.env.PUBLIC_ANALYTICS_PROVIDER === "plausible" && (
-      <script defer data-domain="andreisimion.eu" src="https://plausible.io/js/script.js" />
+    <!-- Cloudflare Web Analytics (free, privacy-friendly, no cookies) -->
+    {import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN && (
+      <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={`{"token":"${import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN}"}`} />
     )}
   </head>
   <body class="min-h-screen flex flex-col">
@@ -102,22 +110,27 @@ const canonicalUrl = new URL(Astro.url.pathname, SITE.url);
 
     <Footer />
 
-    <!-- Scroll animation observer -->
+    <!-- Scroll animation observer (re-runs after View Transitions) -->
     <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        },
-        { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-      );
+      function initScrollAnimations() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+        );
 
-      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
-        observer.observe(el);
-      });
+        document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+          observer.observe(el);
+        });
+      }
+
+      initScrollAnimations();
+      document.addEventListener("astro:after-swap", initScrollAnimations);
     </script>
   </body>
 </html>

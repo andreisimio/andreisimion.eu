@@ -24,15 +24,20 @@ const posts = (await getCollection("blog", ({ data }) => !data.draft))
   <section class="section-container section-padding">
     {posts.length > 0 ? (
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
-          <BlogCard
-            title={post.data.title}
-            description={post.data.description}
-            date={post.data.date}
-            tags={post.data.tags}
-            slug={post.id}
-          />
-        ))}
+        {posts.map((post) => {
+          const words = post.body ? post.body.split(/\s+/).length : 0;
+          const readingTime = Math.max(1, Math.ceil(words / 230));
+          return (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              tags={post.data.tags}
+              slug={post.id}
+              readingTime={readingTime}
+            />
+          );
+        })}
       </div>
     ) : (
       <div class="text-center py-16">
