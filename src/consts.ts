@@ -5,7 +5,7 @@ export const SITE = {
   url: "https://www.andreisimion.eu",
   author: "Andrei Simion",
   tagline: "Structure. Automate. Scale.",
-  email: "simion.andrei@gmail.com",
+  email: "contact@andreisimion.eu",
   linkedin: "https://www.linkedin.com/in/andrei-simion-eu/",
 } as const;
 
