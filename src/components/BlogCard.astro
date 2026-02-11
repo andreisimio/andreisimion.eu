@@ -19,9 +19,9 @@ const formattedDate = date.toLocaleDateString("en-US", {
 <article class="card p-6 group animate-on-scroll">
   <div class="flex flex-wrap gap-2 mb-3">
     {tags.slice(0, 3).map((tag) => (
-      <span class="px-2 py-0.5 text-xs font-medium rounded-full bg-brand-100 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300">
+      <a href={`/blog/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`} class="px-2 py-0.5 text-xs font-medium rounded-full bg-brand-100 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300 hover:bg-brand-200 dark:hover:bg-brand-900/50 transition-colors">
         {tag}
-      </span>
+      </a>
     ))}
   </div>
   <h3 class="heading-3 mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">

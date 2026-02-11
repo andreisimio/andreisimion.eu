@@ -1,0 +1,40 @@
+<button
+  id="back-to-top"
+  class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-brand-600 text-white shadow-lg
+         opacity-0 pointer-events-none translate-y-4
+         transition-all duration-300
+         hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2
+         dark:focus:ring-offset-surface-900"
+  aria-label="Back to top"
+>
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+  </svg>
+</button>
+
+<script>
+  function initBackToTop() {
+    const btn = document.getElementById("back-to-top");
+    if (!btn) return;
+
+    function toggleVisibility() {
+      if (window.scrollY > 400) {
+        btn.classList.remove("opacity-0", "pointer-events-none", "translate-y-4");
+        btn.classList.add("opacity-100", "pointer-events-auto", "translate-y-0");
+      } else {
+        btn.classList.add("opacity-0", "pointer-events-none", "translate-y-4");
+        btn.classList.remove("opacity-100", "pointer-events-auto", "translate-y-0");
+      }
+    }
+
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    toggleVisibility();
+
+    btn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  initBackToTop();
+  document.addEventListener("astro:after-swap", initBackToTop);
+</script>

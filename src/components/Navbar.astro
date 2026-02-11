@@ -86,16 +86,28 @@ const currentPath = Astro.url.pathname;
 <div class="h-16" aria-hidden="true"></div>
 
 <script>
-  const btn = document.getElementById("mobile-menu-btn")!;
-  const menu = document.getElementById("mobile-menu")!;
-  const menuIcon = document.getElementById("menu-icon")!;
-  const closeIcon = document.getElementById("close-icon")!;
+  function initMobileMenu() {
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+    if (!btn || !menu || !menuIcon || !closeIcon) return;
 
-  btn.addEventListener("click", () => {
-    const expanded = btn.getAttribute("aria-expanded") === "true";
-    btn.setAttribute("aria-expanded", String(!expanded));
-    menu.classList.toggle("hidden");
-    menuIcon.classList.toggle("hidden");
-    closeIcon.classList.toggle("hidden");
-  });
+    // Reset menu state on navigation
+    menu.classList.add("hidden");
+    menuIcon.classList.remove("hidden");
+    closeIcon.classList.add("hidden");
+    btn.setAttribute("aria-expanded", "false");
+
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+      menu.classList.toggle("hidden");
+      menuIcon.classList.toggle("hidden");
+      closeIcon.classList.toggle("hidden");
+    });
+  }
+
+  initMobileMenu();
+  document.addEventListener("astro:after-swap", initMobileMenu);
 </script>

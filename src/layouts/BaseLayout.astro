@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import BackToTop from "../components/BackToTop.astro";
 import { ViewTransitions } from "astro:transitions";
 import { SITE } from "../consts";
 
@@ -80,12 +81,27 @@ const canonicalUrl = new URL(Astro.url.pathname, SITE.url);
     <!-- View Transitions -->
     <ViewTransitions />
 
-    <!-- Dark mode script (prevent flash) -->
+    <!-- Dark mode script (prevent flash, persist across View Transitions) -->
     <script is:inline>
-      const theme = localStorage.getItem("theme");
-      if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-        document.documentElement.classList.add("dark");
+      function applyTheme() {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
       }
+
+      applyTheme();
+
+      document.addEventListener("astro:before-swap", (e) => {
+        const isDark = document.documentElement.classList.contains("dark");
+        if (isDark) {
+          e.newDocument.documentElement.classList.add("dark");
+        }
+      });
+
+      document.addEventListener("astro:after-swap", applyTheme);
     </script>
 
     <!-- Cloudflare Web Analytics (free, privacy-friendly, no cookies) -->
@@ -109,6 +125,7 @@ const canonicalUrl = new URL(Astro.url.pathname, SITE.url);
     </main>
 
     <Footer />
+    <BackToTop />
 
     <!-- Scroll animation observer (re-runs after View Transitions) -->
     <script>
